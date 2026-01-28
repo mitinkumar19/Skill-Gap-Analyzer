@@ -2,8 +2,10 @@ from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
+
 import json
 import logging
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.services.analyzer import GapAnalyzer
 from app.core.config import settings
@@ -17,14 +19,20 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(title=settings.PROJECT_NAME, version=settings.VERSION)
 
+
 # CORS Configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://skill-gap-analyzer-web.onrender.com",  # Your frontend URL
+        "*"  # Or use this for testing (not recommended for production)
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Initialize Analyzer (Loads models once)
 analyzer = GapAnalyzer()
