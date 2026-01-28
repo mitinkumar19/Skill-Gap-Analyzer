@@ -1,0 +1,41 @@
+# Data files
+/data/*.json
+/data/*.csv
+
+# Qdrant vector database
+/qdrant_data/
+
+# Environment
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.pytest_cache/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Agent and temporary files
+.agent/
+client_vite_backup/
+temp/
+node_modules/

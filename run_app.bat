@@ -1,0 +1,13 @@
+@echo off
+echo Starting Skill Gap Analyzer...
+
+echo Starting Backend (FastAPI)...
+start "Backend API" cmd /k "python -m uvicorn app.main:app --reload"
+
+echo Waiting for backend to initialize...
+timeout /t 5
+
+echo Starting Frontend (React)...
+cd client && start "Frontend UI" cmd /k "npm run dev"
+
+echo Done! Two windows should open.
