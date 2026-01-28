@@ -13,3 +13,5 @@ plotly>=5.18.0
 pytest>=8.0.0
 spacy>=3.7.0
 rapidfuzz>=3.6.0
+scikit-learn>=1.4.0
+numpy>=1.26.0

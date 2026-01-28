@@ -18,14 +18,9 @@ logger = logging.getLogger(__name__)
 app = FastAPI(title=settings.PROJECT_NAME, version=settings.VERSION)
 
 # CORS Configuration
-origins = [
-    "http://localhost:5173",  # React Frontend (Vite)
-    "http://localhost:8000",  # Backend (Self)
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
