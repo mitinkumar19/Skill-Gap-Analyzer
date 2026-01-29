@@ -1,0 +1,16 @@
+Write-Host "Starting Skill Gap Analyzer..." -ForegroundColor Cyan
+
+# Start Backend
+Write-Host "Starting Backend (FastAPI) in a new window..." -ForegroundColor Green
+Start-Process cmd -ArgumentList "/k python -m uvicorn app.main:app --reload"
+
+Write-Host "Waiting for backend to initialize..."
+Start-Sleep -Seconds 3
+
+# Start Frontend
+Write-Host "Starting Frontend (React) in a new window..." -ForegroundColor Green
+Start-Process cmd -ArgumentList "/k cd client && npm run dev"
+
+Write-Host "`nBoth services have been started in separate windows." -ForegroundColor Cyan
+Write-Host "Check the new windows for the 'http://localhost' links." -ForegroundColor Gray
+

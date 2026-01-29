@@ -62,24 +62,47 @@ Most skill analyzers rely on generic LLM calls which are slow, expensive, and pr
 *   Node.js 18+
 *   Groq API Key (for roadmap generation)
 
-### 2. Backend Setup
+### 2. Fast Launch (Recommended)
+We provide unified scripts to start both backend and frontend with a single command:
+
+**Windows (PowerShell):**
+```powershell
+# This will open two separate windows for logs
+.\run.ps1
+```
+
+**Bash (Git Bash / WSL / Linux / macOS):**
 ```bash
+# This runs both in the background with cleanup handling
+./run.sh
+```
+
+---
+
+## 🛠️ Detailed Installation (Manual)
+
+### 1. Backend Setup
+```bash
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
 # Install dependencies
 pip install -r requirements.txt
 
 # Download NLP model
 python -m spacy download en_core_web_sm
 
-# Start server
-uvicorn app.main:app --reload
+# Configure environment variables
+cp .env.example .env  # Add your GROQ_API_KEY
 ```
 
-### 3. Frontend Setup
+### 2. Frontend Setup
 ```bash
 cd client
 npm install
-npm run dev
 ```
+
 
 ---
 
